@@ -28,7 +28,7 @@ namespace API_REST_ADMIN_NOTAS.Models
         [Column("ID_USUARIO")]
         public int IdUsuario { get; set; }
 
-        public Etiqueta Etiqueta { get; set; } = null!;
-        public Usuario Usuario { get; set; } = null!;
+        public Etiqueta? Etiqueta { get; set; }
+        public Usuario? Usuario { get; set; }
     }
 }
