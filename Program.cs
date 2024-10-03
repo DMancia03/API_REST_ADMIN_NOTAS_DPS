@@ -10,8 +10,19 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<AdminNotasContext>(options => 
-options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+// Verificar si la aplicación está corriendo en un contenedor Docker
+bool isDocker = (Environment.GetEnvironmentVariable("DOTNET_RUNNING_IN_CONTAINER") == "true");
+
+if (isDocker)
+{
+    builder.Services.AddDbContext<AdminNotasContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionLocalDocker")));
+}
+else
+{
+    builder.Services.AddDbContext<AdminNotasContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionLocal")));
+}
 
 var app = builder.Build();
 
