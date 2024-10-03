@@ -14,7 +14,26 @@ namespace API_REST_ADMIN_NOTAS.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<Nota>().ToTable("Notas");
+            modelBuilder.Entity<Etiqueta>()
+                .HasOne(e => e.Usuario)
+                .WithMany(u => u.Etiquetas)
+                .HasForeignKey(e => e.IdUsuario)
+                .HasConstraintName("FK_ETIQUETA_USUARIO")
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Nota>()
+                .HasOne(a => a.Usuario)
+                .WithMany(u => u.Notas)
+                .HasForeignKey(a => a.IdUsuario)
+                .HasConstraintName("FK_NOTA_USUARIO")
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Nota>()
+                .HasOne(a => a.Etiqueta)
+                .WithMany(e => e.Notas)
+                .HasForeignKey(a => a.IdEtiqueta)
+                .HasConstraintName("FK_NOTA_ETIQUETA")
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

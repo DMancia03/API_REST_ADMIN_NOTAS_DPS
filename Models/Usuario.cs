@@ -15,5 +15,9 @@ namespace API_REST_ADMIN_NOTAS.Models
 
         [Column("PASS", TypeName = "NVARCHAR(100)")]
         public string Pass { get; set; } = null!;
+
+
+        public ICollection<Etiqueta> Etiquetas { get; set; } = null!;
+        public ICollection<Nota> Notas { get; set; } = null!;
     }
 }

@@ -15,5 +15,8 @@ namespace API_REST_ADMIN_NOTAS.Models
 
         [Column("ID_USUARIO")]
         public int IdUsuario { get; set; }
+
+        public Usuario Usuario { get; set; } = null!;
+        public ICollection<Nota> Notas { get; set; } = null!;
     }
 }
