@@ -20,7 +20,7 @@ namespace API_REST_ADMIN_NOTAS.Models
         public string Nombre { get; set; } = null!;
 
         [Column("FECHA_RECORDATORIO", TypeName = "DATETIME")]
-        public DateTime FechaRecordatorio { get; set; }
+        public DateTime? FechaRecordatorio { get; set; }
 
         [Column("ID_ETIQUETA")]
         public int IdEtiqueta { get; set; }
