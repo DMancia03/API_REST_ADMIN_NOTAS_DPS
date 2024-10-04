@@ -14,6 +14,10 @@ namespace API_REST_ADMIN_NOTAS.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Usuario>()
+                .HasIndex(u => u.Username)
+                .IsUnique();
+
             modelBuilder.Entity<Etiqueta>()
                 .HasOne(e => e.Usuario)
                 .WithMany(u => u.Etiquetas)
