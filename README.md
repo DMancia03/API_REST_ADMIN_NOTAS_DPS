@@ -15,20 +15,25 @@ REST API desarrollada con C# y encapsulada en un contenedor, para poder administ
 2. Desplegar a imagen
 
 ## Pruebas
-``
+```
 //Registrar usuario
 {host}/Usuarios/signup
+
 //Iniciar sesion a un usuario
 {host}/Usuarios/login
+
 //Ver o crear etiquetas
 {host}/Etiquetas
+
 //Ver etiquetas del usuario
 {host}/Etiquetas/id_usuario/{IdUsuario}
+
 //Ver o crear notas
 {host}/Notas
+
 //Ver notas del usuario
 {host}/Notas/usuario/{IdUsuario}
-``
+```
 
 ## Integrantes
 - Yensy Alejandra Cruz Barahona | CB121442
