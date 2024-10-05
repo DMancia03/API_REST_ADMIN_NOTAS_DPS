@@ -98,6 +98,7 @@ namespace API_REST_ADMIN_NOTAS.Controllers
         [HttpGet("usuario/{IdUsuario}/nombre_etiqueta/{NombreEtiqueta}", Name = "GetNotaNombreEtiqueta")]
         public IActionResult GetNotaEtiqueta(int IdUsuario,string NombreEtiqueta)
         {
+            NombreEtiqueta  = "%" + NombreEtiqueta + "%";
             List<NotaRequest> notas = (from n in _db.Notas
                                        join e in _db.Etiquetas on n.IdEtiqueta equals e.IdEtiqueta
                                        where n.FechaRecordatorio == null
